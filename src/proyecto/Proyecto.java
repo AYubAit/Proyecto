@@ -9,26 +9,41 @@ public class Proyecto {
         // TODO code application logic here
         
         
-        int opcio;
-        boolean omplit = false;
+        int opcio, nota1, nota2;
+        boolean omplit = false , estat;
+        String nom, mp, ms;
 
         Scanner ent = new Scanner(System.in);
 
         do {
 
-            System.out.println("Introduix una dels seguents Opcions:\n \n 1. Afegir Alumne \n 2. Editar Alumne \n 3. Llistar  \n 4. Borrar Alumne  \n 5. About \n6. Sortir");
-            opcio = ent.nextLine().charAt(0);
-            
-            
-            
-            
-            
-            
-            
+            System.out.println("Introduix una dels seguents Opcions:\n \n 1. Afegir Alumne \n 2. Editar Alumne \n 3. Llistar  \n 4. Borrar Alumne  \n 5. About \n 6. Sortir");
+            opcio = ent.nextInt();
+                                           
+                               
 
             switch (opcio) {
                 case 1:
                     System.out.println("HAS ESCOLLIT LA OPCIO DE AFEGIR ALUMNE");
+                    if (!omplit){
+                        
+                        System.out.print("Introdueix Nom de Alumne: ");
+                        nom = ent.nextLine();
+                        
+                        System.out.print("Introdueix Nom del Moduls Aprovats: ");
+                        mp = ent.nextLine();
+                        
+                        System.out.print("Introdueix la Nota de" + mp );
+                        nota1 = ent.nextInt();
+                        
+                        System.out.print("Introdueix Nom del Moduls Suspes: ");
+                        ms = ent.nextLine();
+                        
+                        System.out.print("Introdueix la Nota de" + ms);
+                        nota2 = ent.nextInt();
+                        
+                        omplit=true;
+                    }else {System.out.println("Ja tens Dades Introduides");}
                     
                     break;
                 case 2:
