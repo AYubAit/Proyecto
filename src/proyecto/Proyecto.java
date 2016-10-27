@@ -7,6 +7,8 @@ public class Proyecto {
     public static void main(String[] args) {
 
         // TODO code application logic here
+        
+        
         int opcio;
         boolean omplit = false;
 
@@ -16,6 +18,13 @@ public class Proyecto {
 
             System.out.println("Introduix una dels seguents Opcions:\n \n 1. Afegir Alumne \n 2. Editar Alumne \n 3. Llistar  \n 4. Borrar Alumne  \n 5. About \n6. Sortir");
             opcio = ent.nextLine().charAt(0);
+            
+            
+            
+            
+            
+            
+            
 
             switch (opcio) {
                 case 1:
@@ -42,6 +51,7 @@ public class Proyecto {
                 default:
                     System.out.println("Perfavor Introdueix una de les OPCIONS  ");
             }
+            if (opcio==6) break;
 
         } while (true);
     }
