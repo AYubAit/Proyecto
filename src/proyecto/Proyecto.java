@@ -15,7 +15,7 @@ public class Proyecto {
 
         do {
 
-            System.out.println("\n Introduix una dels seguents Opcions:\n \n 1. Afegir Alumne \n 2. Editar Alumne \n 3. Llistar  \n 4. Borrar Alumne  \n 5. About \n 6. Sortir\n\n\n");
+            System.out.println("\n  Introduix una dels seguents Opcions:\n \n 1. Afegir Alumne \n 2. Editar Alumne \n 3. Llistar  \n 4. Borrar Alumne  \n 5. About \n 6. Sortir\n\n\n");
             opcio = ent.nextInt();
 
             switch (opcio) {
