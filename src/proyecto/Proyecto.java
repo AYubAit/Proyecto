@@ -7,68 +7,80 @@ public class Proyecto {
     public static void main(String[] args) {
 
         // TODO code application logic here
-        
-        
-        int opcio, nota1, nota2;
-        boolean omplit = false , estat;
-        String nom, mp, ms;
+        int opcio, nota1, nota2, mp, ms;
+        boolean omplit = false, estat;
+        String nom, nomCicle ;
 
         Scanner ent = new Scanner(System.in);
 
         do {
 
-            System.out.println("Introduix una dels seguents Opcions:\n \n 1. Afegir Alumne \n 2. Editar Alumne \n 3. Llistar  \n 4. Borrar Alumne  \n 5. About \n 6. Sortir");
+            System.out.println("\n Introduix una dels seguents Opcions:\n \n 1. Afegir Alumne \n 2. Editar Alumne \n 3. Llistar  \n 4. Borrar Alumne  \n 5. About \n 6. Sortir\n\n\n");
             opcio = ent.nextInt();
-                                           
-                               
 
             switch (opcio) {
                 case 1:
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE AFEGIR ALUMNE");
-                    if (!omplit){
+                    System.out.println("HAS ESCOLLIT LA OPCIO DE AFEGIR ALUMNE\n\n\n");
+                    System.out.println("___________________________________________");
+                    System.out.println("___________________________________________");
+                    if (omplit==false) {
+
+                        System.out.print("Introdueix Nom de Alumne: \n");
+                        nom = ent.skip("[\r\n]*").nextLine();
+
+                        System.out.print("Introdueix Nom de Cicle:\n ");
+                        nomCicle = ent.skip("[\r\n]*").nextLine();
+
+                        System.out.print("Introdueix Numero de moduls Aprovats: \n");
+                        mp = ent.nextInt();
                         
-                        System.out.print("Introdueix Nom de Alumne: ");
-                        nom = ent.nextLine();
-                        
-                        System.out.print("Introdueix Nom del Moduls Aprovats: ");
-                        mp = ent.nextLine();
-                        
-                        System.out.print("Introdueix la Nota de" + mp );
+                        System.out.print("Introdueix la Nota mes alta de moduls Aprovats: \n");
                         nota1 = ent.nextInt();
+
+                        System.out.print("Introdueix Numero del Moduls Suspesos: \n");
+                        ms = ent.nextInt();
                         
-                        System.out.print("Introdueix Nom del Moduls Suspes: ");
-                        ms = ent.nextLine();
-                        
-                        System.out.print("Introdueix la Nota de" + ms);
+                        System.out.print("Introdueix la Nota mes Baixa de moduls Suspesos :\n" );
                         nota2 = ent.nextInt();
+                        System.out.println("\n\n\n");
+                        System.out.println("___________________________________________");
+                        System.out.println("___________________________________________");
                         
-                        omplit=true;
-                    }else {System.out.println("Ja tens Dades Introduides");}
+                        omplit = true;
+                    } else{
+                        System.out.println("Ja tens Dades Introduides\n\n\n");}
                     
+
                     break;
                 case 2:
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE EDITAR");
+                    System.out.println("HAS ESCOLLIT LA OPCIO DE EDITAR\n\n\n");
                     break;
                 case 3:
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE LLISTAR");
+                    System.out.println("HAS ESCOLLIT LA OPCIO DE LLISTAR\n\n\n");
+                    System.out.println("Nom de Alumne: "+ ( nom + "\n\n"));
+                    
+                    
+                    
                     break;
                 case 4:
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE BORRAR");
+                    System.out.println("HAS ESCOLLIT LA OPCIO DE BORRAR\n\n\n");
                     break;
                 case 5:
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE ABOUT");
+                    System.out.println("Aquest Programa Es Creat Per:\n");
+                    System.out.println("Ayoub Ait \n Curs: 2016 - 2017 \n Cicle: 1r - Administració de Sistemes Informatics de Xarxes ");
+                    System.out.println("___________________________________________");
                     break;
                 case 6:
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE SORTIR");
-                    
+                    System.out.println("HAS ESCOLLIT LA OPCIO DE SORTIR\n\n\n");
 
                     break;
                 default:
-                    System.out.println("Perfavor Introdueix una de les OPCIONS  ");
+                    System.out.println("Perfavor Introdueix una de les OPCIONS\n\n\n  ");
             }
-            if (opcio==6) break;
+           
+            
 
-        } while (true);
+        } while (opcio != 6);
     }
 
 }
