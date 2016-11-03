@@ -7,7 +7,7 @@ public class Proyecto {
     public static void main(String[] args) {
 
         // TODO code application logic here
-        int opcio, nota1, nota2, mp, ms;
+        int opcio, nota1, nota2, mp, ms, mostrar;
         boolean omplit = false, estat;
         String nom, nomCicle ;
 
@@ -42,13 +42,19 @@ public class Proyecto {
                         
                         System.out.print("Introdueix la Nota mes Baixa de moduls Suspesos :\n" );
                         nota2 = ent.nextInt();
-                        System.out.println("\n\n\n");
+                        System.out.println("\n");
                         System.out.println("___________________________________________");
                         System.out.println("___________________________________________");
                         
                         omplit = true;
                     } else{
-                        System.out.println("Ja tens Dades Introduides\n\n\n");}
+                        System.out.println("Ja tens Dades Introduides\n");
+                        System.out.println("Vols Mostrar o Llistar Les Dades Guardades?( 1. Si \n 2- No ):\n");
+                        mostrar = ent.nextInt();
+                        if (mostrar == 1) {
+                            System.out.println("Nom Alumne:" (+nom));
+                        }
+                    }
                     
 
                     break;
