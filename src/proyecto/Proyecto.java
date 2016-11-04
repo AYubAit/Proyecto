@@ -10,6 +10,9 @@ public class Proyecto {
         int opcio, nota1, nota2, mp, ms, mostrar, totm;
         boolean omplit = false, estat;
         String nom, nomCicle;
+        String tecla = "sda";
+
+        //inicio les variables per que me surt error per despues de cambien
         nom = "sdas";
         nomCicle = "dasda";
         mp = 0;
@@ -70,6 +73,8 @@ public class Proyecto {
                                 break;
                         }
                     }
+                    System.out.println("Introdueix una Tecla per continuar.....");
+                    tecla = ent.skip("[\r\n]*").nextLine();
 
                     break;
                 case 2:
@@ -89,21 +94,31 @@ public class Proyecto {
                     System.out.print(" | Introdueix Numero de moduls Supesos:  i la nota més baixa \n");
                     ms = ent.nextInt();
                     nota2 = ent.nextInt();
+                    System.out.println("Introdueix una Tecla per continuar.....");
+                    tecla = ent.skip("[\r\n]*").nextLine();
 
                     break;
                 case 3:
-                    totm=mp+ms;
-                    if (nota1>nota2 && mp>ms) {
-                       estat=true;                         
-                    }else{ estat=false;}
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE LLISTAR\n\n");                    
+                    totm = mp + ms;
+
+                    System.out.println("HAS ESCOLLIT LA OPCIO DE LLISTAR\n\n");
                     System.out.println("-------------------------------------------------------------------");
                     System.out.println("| Nom Alumne: " + (nom));
                     System.out.println("| Nom Curs: " + (nomCicle));
                     System.out.format(" | Numero de moduls Aprovats:  %s   i la nota Més alta: %s", mp, nota1);
-                    System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s", ms, nota2);
-                    System.out.println("| la Nota mitjana mes aproximada es:"+((mp+ms)));
+                    System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s\n", ms, nota2);
+
+                    if (nota1 > nota2 && mp > ms) {
+                        estat = true;
+                        System.out.println("Estat Aprovat!!");
+                    } else {
+                        estat = false;
+                        System.out.println("Estat Suspes!!");
+                    }
                     System.out.println("-------------------------------------------------------------------");
+                    System.out.println("Introdueix una Tecla per continuar.....");
+
+                    tecla = ent.skip("[\r\n]*").next();
 
                     break;
                 case 4:
@@ -113,31 +128,36 @@ public class Proyecto {
                     System.out.println("intodueix una opcio:");
                     mostrar = ent.nextInt();
                     switch (mostrar) {
-                            case 1:
-                                omplit = false;
-                                System.out.println("----------------------------------");
-                                System.out.println("| Nom Alumne: Borrat!! " );
-                                System.out.println("| Nom Curs: Borrat!! ");
-                                System.out.println("| Moduls aprovats i Nota: Borrats!! ");                                
-                                System.out.println("| Moduls suspesos  i nota : Borrats!! ");
-                                System.out.println("---------------Dades borrrades 100%!! ");
-                                
-                                break;
-                            default:
-                                break;
-                        }
+                        case 1:
+                            omplit = false;
+                            System.out.println("----------------------------------");
+                            System.out.println("| Nom Alumne: Borrat!! ");
+                            System.out.println("| Nom Curs: Borrat!! ");
+                            System.out.println("| Moduls aprovats i Nota: Borrats!! ");
+                            System.out.println("| Moduls suspesos  i nota : Borrats!! ");
+                            System.out.println("---------------Dades borrrades 100%!! ");
+                            System.out.println("Introdueix una Tecla per continuar.....");
+                            tecla = ent.skip("[\r\n]*").next();
+                            break;
+                        default:
+                            break;
+                    }
+
                     break;
                 case 5:
+                    System.out.println("----------------About------------------");
                     System.out.println("Aquest Programa Es Creat Per:\n");
                     System.out.println("Ayoub Ait \n Curs: 2016 - 2017 \n Cicle: 1r - Administració de Sistemes Informatics de Xarxes ");
                     System.out.println("___________________________________________");
+                    System.out.println("Introdueix una Tecla per continuar.....");
+                    tecla = ent.skip("[\r\n]*").next();
                     break;
                 case 6:
-                    System.out.println("HAS ESCOLLIT LA OPCIO DE SORTIR\n\n\n");
+                    System.out.println("\n\n-------HAS ESCOLLIT LA OPCIO DE SORTIR------");
 
                     break;
                 default:
-                    System.out.println("Perfavor Introdueix una de les OPCIONS\n\n\n  ");
+                    System.out.println(" !!! Perfavor Introdueix una de les OPCIONS !!!\n\n  ");
             }
 
         } while (opcio != 6);
