@@ -4,23 +4,25 @@ import java.util.Scanner;
 
 public class Proyecto {
 
+    private static final int ALUMNES_MAX = 2;
+    private static ALumne[] array = new ALumne[ALUMNES_MAX];
+
     public static void main(String[] args) {
 
         // TODO code application logic here
-        int opcio, nota1, nota2, mp, ms, mostrar, totm;
-        boolean omplit = false, estat;
-        String nom, nomCicle;
+        int opcio;
         String tecla = "sda";
 
-        //inicio les variables per que me surt error per despues de cambien
-        nom = "sdas";
-        nomCicle = "dasda";
-        mp = 0;
-        ms = 0;
-        nota1 = 0;
-        nota2 = 0;
+       
 
         Scanner ent = new Scanner(System.in);
+
+        ALumne p = null;
+        for (int i = 0; i < array.length; i++) {
+            array[i] = new ALumne();
+            array[i].setOmplit(false);
+
+        }
 
         do {
 
@@ -29,33 +31,39 @@ public class Proyecto {
 
             switch (opcio) {
                 case 1:
+
+                    int i;
+                    for (i = 0; i < array.length && array[i].isOmplit(); i++);
+
                     System.out.println("HAS ESCOLLIT LA OPCIO DE AFEGIR ALUMNE\n\n");
                     System.out.println("___________________________________________");
                     System.out.println("___________________________________________");
-                    if (omplit == false) {
+                    if (i < array.length) {
 
                         System.out.print("Introdueix Nom de Alumne: \n");
-                        nom = ent.skip("[\r\n]*").nextLine();
+                        array[i].setNom(ent.skip("[\r\n]*").nextLine());
 
                         System.out.print("Introdueix Nom de Cicle:\n ");
-                        nomCicle = ent.skip("[\r\n]*").nextLine();
+                        array[i].setNomCicle(ent.skip("[\r\n]*").nextLine());
 
                         System.out.print("Introdueix Numero de moduls Aprovats: \n");
-                        mp = ent.nextInt();
+                        array[i].setMp(ent.nextInt());
 
                         System.out.print("Introdueix la Nota mes alta de moduls Aprovats: \n");
-                        nota1 = ent.nextInt();
+                        array[i].setNota1(ent.nextDouble());
 
                         System.out.print("Introdueix Numero del Moduls Suspesos: \n");
-                        ms = ent.nextInt();
+
+                        array[i].setMs(ent.nextInt());
 
                         System.out.print("Introdueix la Nota mes Baixa de moduls Suspesos :\n");
-                        nota2 = ent.nextInt();
+                        array[i].setNota2(ent.nextDouble());
+
                         System.out.println("\n");
                         System.out.println("___________________________________________");
                         System.out.println("___________________________________________");
 
-                        omplit = true;
+                        array[i].setOmplit(true);
                     } else {
                         System.out.println("Ja tens Dades Introduides\n");
                         System.out.println("Vols Mostrar o Llistar Les Dades Guardades?( 1.Si o 2.No ):\n");
@@ -63,10 +71,10 @@ public class Proyecto {
                         switch (mostrar) {
                             case 1:
                                 System.out.println("-------------------------------------------------------------------");
-                                System.out.println("| Nom Alumne: " + (nom));
-                                System.out.println("| Nom Curs: " + (nomCicle));
-                                System.out.format(" | Numero de moduls Aprovats:  %s   i la nota Més alta: %s", mp, nota1);
-                                System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s", ms, nota2);
+                                System.out.println("| Nom Alumne: " + (array[i].getNom()));
+                                System.out.println("| Nom Curs: " + (array[i].getNomCicle()));
+                                System.out.format(" | Numero de moduls Aprovats:  %s   i la nota Més alta: %s", array[i].getMp(), array[i].getNota1());
+                                System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s", array[i].getMs(), array[i].getNota2());
                                 System.out.println("-------------------------------------------------------------------");
                                 break;
                             default:
@@ -80,39 +88,41 @@ public class Proyecto {
                 case 2:
                     System.out.println("HAS ESCOLLIT LA OPCIO DE EDITAR\n\n");
                     System.out.println("-------------------------------------------------------------------");
-                    System.out.println("| Nom Alumne: " + (nom));
+                    System.out.println("| Nom Alumne: " + (array[i].getNom()));
                     System.out.println("| Introduix El Nom Editat: ");
-                    nom = ent.skip("[\r\n]*").nextLine();
-                    System.out.println("| Nom Curs: " + (nomCicle));
+                    array[i].setNom(ent.skip("[\r\n]*").nextLine());
+                    System.out.println("| Nom Curs: " + (array[i].getNomCicle()));
                     System.out.print("  | Introdueix Nom de Cicle Editat:\n ");
-                    nomCicle = ent.skip("[\r\n]*").nextLine();
-                    System.out.format(" | Numero de moduls Aprovats:  %s   i la nota Més alta: %s  \n", mp, nota1);
+                    array[i].setNomCicle(ent.skip("[\r\n]*").nextLine());
+                    System.out.format(" | Numero de moduls Aprovats:  %s   i la nota Més alta: %s  \n", array[i].getMp(), array[i].getNota1());
                     System.out.print(" |Introdueix Numero de moduls Aprovats:  i la nota més Alta \n");
-                    mp = ent.nextInt();
-                    nota1 = ent.nextInt();
-                    System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s", ms, nota2);
+                    array[i].setMp(ent.nextInt());          array[i].setNota1(ent.nextDouble());
+                        
+                        
+                    System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s",array[i].getMs(), array[i].getNota2());
                     System.out.print(" | Introdueix Numero de moduls Supesos:  i la nota més baixa \n");
-                    ms = ent.nextInt();
-                    nota2 = ent.nextInt();
+                    array[i].setMs(ent.nextInt());          array[i].setNota2(ent.nextDouble());
                     System.out.println("Introdueix una Tecla per continuar.....");
                     tecla = ent.skip("[\r\n]*").nextLine();
 
                     break;
                 case 3:
-                    totm = mp + ms;
+                    
+                    
+                    array[i].setTotm(array[i].getMp()+array[i].getMs());
 
                     System.out.println("HAS ESCOLLIT LA OPCIO DE LLISTAR\n\n");
                     System.out.println("-------------------------------------------------------------------");
-                    System.out.println("| Nom Alumne: " + (nom));
-                    System.out.println("| Nom Curs: " + (nomCicle));
-                    System.out.format(" | Numero de moduls Aprovats:  %s   i la nota Més alta: %s", mp, nota1);
-                    System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s\n", ms, nota2);
+                    System.out.println("|  Nom Alumne: " + (array[i].getNom()));
+                    System.out.println("| Nom Curs: " + (array[i].getNomCicle()));
+                    System.out.format(" | Numero de moduls Aprovats:  %s   i la nota Més alta: %s", array[i].getMp(), array[i].getNota1());
+                    System.out.format(" | Numero de moduls Suspesos:  %s   i la nota Més alta: %s\n", array[i].getMs(), array[i].getNota2());
 
-                    if (nota1 > nota2 && mp > ms) {
-                        estat = true;
+                    if (array[i].getNota1() > array[i].getNota2() && array[i].getMp()> array[i].getMs()) {
+                        array[i].setEstat(true);
                         System.out.println("Estat Aprovat!!");
                     } else {
-                        estat = false;
+                        array[i].setEstat(false);
                         System.out.println("Estat Suspes!!");
                     }
                     System.out.println("-------------------------------------------------------------------");
@@ -129,7 +139,8 @@ public class Proyecto {
                     mostrar = ent.nextInt();
                     switch (mostrar) {
                         case 1:
-                            omplit = false;
+                            array[i].setOmplit(false);
+                          
                             System.out.println("----------------------------------");
                             System.out.println("| Nom Alumne: Borrat!! ");
                             System.out.println("| Nom Curs: Borrat!! ");
