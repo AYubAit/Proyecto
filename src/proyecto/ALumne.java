@@ -9,18 +9,33 @@ package proyecto;
  *
  * @author alumne
  */
-public class ALumne {
+public class ALumne implements java.io.Serializable {
 
-    private String nom = "sdas";
-    private String nomCicle = "dasda";
-    private int mp = 0;
-    private int ms = 0;
-    private double nota1 = 0;
-    private double nota2 = 0;
+    public ALumne(int totm, boolean estat) {
+        this.totm = totm;
+        this.estat = estat;
+    }
+
+    private String nom = null;
+    private String nomCicle = null;
+    private int mp ;
+
+    @Override
+    public String toString() {
+        return  " Nom del Alumne =" + nom + ", Nom de Cicle=" + nomCicle ;
+    }
+    private int ms ;
+    private double nota1 ;
+    private double nota2 ;
     private int totm;
 
     private boolean omplit = false;
     private boolean estat;
+
+    ALumne() {
+    }
+
+   
 
     public String getNom() {
         return nom;
